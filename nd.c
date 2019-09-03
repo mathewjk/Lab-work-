@@ -19,9 +19,7 @@ int main()
      
      printf("\nEnter the number of states:");
      scanf("%d",&st);
-     //State numbers should be from 0 onwards to n-1
-     printf("\nGive state numbers from 0 to %d",st-1);
-     
+     //State numbers should be from 0 onwards to n-1     
      for(i=0;i<st;i++)
      		state[(int)(pow(2,i))] = 1;
 
@@ -36,10 +34,10 @@ int main()
 
      int p,q,r,rel;
      
-     printf("\nEnter the number of rules according to NFA:");
+     printf("\nEnter number of transitions:");
      scanf("%d",&rel);
      
-     printf("\n\nDefine transition rule as \"initial state input symbol final state\"\n");
+     printf("\nEnter transitions:\n");
 
      
      
@@ -47,19 +45,15 @@ int main()
      {
           scanf("%d%d%d",&p,&q,&r);
 		  if (q==0)
-		  	dfa[p][0][r] = 1;
+		  	dfa[p][0][r] =1;
 		  else 
-		  	dfa[p][1][r] = 1;          
+		  	dfa[p][1][r] =1;          
      }
-     
      printf("\nEnter initial state:");
      scanf("%d",&in);
-
      in = pow(2,in);
 
      i=0;
-     
-     printf("\nSolving according to DFA");
      
      int x=0;
      for(i=0;i<st;i++)
@@ -112,10 +106,10 @@ int main()
      		}
      }
      
-     printf("\nThe total number of distinct states are:\n");
+     printf("\nDFA:\n");
      
-     printf("STATE\t\t0\t1\n");
-     
+     printf("STATE\t0\t1\n");
+     int w,e;
      for(i=0;i<10000;i++)
      {
      		if(state[i]==1)
@@ -123,7 +117,7 @@ int main()
      				//printf("%d**",i);
      				int y=0;
      				if(i==0)
-     					printf("q0\t");
+     					printf("q0");
      				
      				else
      				for(j=0;j<st;j++)
@@ -137,7 +131,8 @@ int main()
      						}
      				}
      				//printf("%d",y);
-     				printf("\t%d\t%d",go[y][0],go[y][1]);
+     				
+     				printf("\t%d\t%d",w,e);
      				printf("\n");
      		}
      }
